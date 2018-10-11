@@ -28,16 +28,18 @@ The goal of this course is to introduce some of the most common services found i
  
 ### Verify local environment
 
- 1. Create a new [Git repository](https://github.com/Omegapoint/) called `aws-<your-name>` Don't forget to delete the repository when your done with the course.
- 2. Clone the template repository `$ git clone --bare https://github.com/Omegapoint/cloud-computing-app.git`
- 3. `$ cd cloud-computing-app.git`
- 4. `$ git push --mirror https://github.com/Omegapoint/aws-<your-name>.git` If you're using ssh to access Github, run: `$ git push --mirror git@github.com:Omegapoint/aws-<your-name>.git`
- 5. `$ cd ..`
- 6. `$ rm -rf cloud-computing-app.git`
- 7. `$ git clone https://github.com/Omegapoint/aws-<your-name>.git` If you're using ssh to access Github, run: `$ git clone  git@github.com:Omegapoint/aws-<your-name>.git`
- 8. `$ cd aws-<your-name>`
- 3. Build the application `$ ./gradlew clean build`
- 4. Run the application `$ ./gradlew bootRun -Dspring.profiles.active=local`
+ 1. Create a new [Git repository](http://stash.tre.se/projects/LABS) called `aws-<your-name>` Don't forget to delete the repository when your done with the course.
+ 2. Clone the template repository `$ git clone http://stash.tre.se/scm/labs/cloud-computing-app.git`
+ 3. `$ cd cloud-computing-app`
+ 4. `$ git remote set-url origin http://stash.tre.se/scm/labs/aws-<your-name>.git`
+ 5. `$ git push -u origin --all`
+ 6. `$ git push origin --tags`
+ 7. `$ cd ..`
+ 8. `$ rm -rf cloud-computing-app.git`
+ 9. `$ git clone http://stash.tre.se/scm/labs/aws-<your-name>.git` If you're using ssh, run: `$ git clone  git@stash.tre.se:projects/labs/repos/aws-<your-name>.git`
+ 10. `$ cd aws-<your-name>`
+ 11. Build the application `$ ./gradlew clean build`
+ 12. Run the application `$ ./gradlew bootRun -Dspring.profiles.active=local`
 
 
 <span style="color:orange">**Checkpoint 1**</span> You can now go to `http://localhost:8080/cloud-computing-template-app/ping` in your browser att receive a _"pong"_.
