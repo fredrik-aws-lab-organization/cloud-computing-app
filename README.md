@@ -106,7 +106,7 @@ Note: Don't forget to always use Ireland as the region in AWS.
   - Port Range: `22`
   - Source: `My IP`
   - Description: `SSH for admin`
- 9. **Configure Security Group 2**
+  - **Add Rule**
   - Type: _Custom TCP_
   - Protocol: _TCP_
   - Port Range: `8080` (or whichever port your application is running)
@@ -120,11 +120,13 @@ Note: Don't forget to always use Ireland as the region in AWS.
 
 
 <span style="color:orange">**Checkpoint 4**</span> You can now SSH to your EC2 instance with the key you've generated. The username is **ec2-user**. To ssh with a your key use the following command: `ssh -i <path-to-your-pem-file> ec2-user@<public IP of the EC2 instance>`
-
+  - update permissions on the key: `chmod 400 <application-name>-key.pem`
 
 ### Manual deploy
 
  1. Upload your jar to to the instance with scp.
+ - scp -i <application-name>-key.pem thernelius001-1.0-SNAPSHOT.jar ec2-user@ec2-34-240-175-17.eu-west-1.compute.amazonaws.com:
+   thernelius001-1.0-SNAPSHOT.jar      
  2. Install java with `yes | sudo yum install java-1.8.0`
  3. Start the application by using the command `java -jar -Dspring.profiles.active=production <application-name>.jar`.
 
