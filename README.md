@@ -30,19 +30,17 @@ The goal of this course is to introduce some of the most common services found i
 Since the tre-stash could not be used for the pipelines we are building I have set up a new organization in git for this lab: fredrik-aws-lab-organization. 
 I have to invite you to this organization in order for the lab to work.
  
- 1. I have set up 
- 
 ### Verify local environment
 
- 1. Create a new [Git repository](http://stash.tre.se/projects/LABS) called `aws-<your-name>` Don't forget to delete the repository when your done with the course.
- 2. Clone the template repository `$ git clone http://stash.tre.se/scm/labs/cloud-computing-app.git`
+ 1. Create a new [Git repository](https://github.com/fredrik-aws-lab-organization/) called `aws-<your-name>` Don't forget to delete the repository when your done with the course.
+ 2. Clone the template repository `$ git --bare clone http://stash.tre.se/scm/labs/cloud-computing-app.git`
  3. `$ cd cloud-computing-app`
- 4. `$ git remote set-url origin http://stash.tre.se/scm/labs/aws-<your-name>.git`
+ 4. `$ git remote set-url origin https://github.com/fredrik-aws-lab-organization/aws-<your-name>.git`
  5. `$ git push -u origin --all`
  6. `$ git push origin --tags`
  7. `$ cd ..`
  8. `$ rm -rf cloud-computing-app.git`
- 9. `$ git clone http://stash.tre.se/scm/labs/aws-<your-name>.git` If you're using ssh, run: `$ git clone  git@stash.tre.se:projects/labs/repos/aws-<your-name>.git`
+ 9. `$ git clone https://github.com/fredrik-aws-lab-organization/aws-<your-name>.git`
  10. `$ cd aws-<your-name>`
  11. Build the application `$ ./gradlew clean build`
  12. Run the application `$ ./gradlew bootRun -Dspring.profiles.active=local`
@@ -310,6 +308,8 @@ You may have to modify these files to fit your application.
 <span style="color:orange">**Checkpoint 9**</span> Push these files to your repository.
 <a name="CodePipeline2"></a>
 ## Create the CodePipeline
+**OBS! For this guide to work you need to select "the old console experience" OBS!**
+
  1. Go to the service CodePipeline and click _Create Pipeline_
  2. Name it `<application-name>-CodePipeline` and click next step
  3. For _Source provider_ chooce Github and click _Connect to Github_ and authorize AWS to access your Github resources
@@ -341,17 +341,21 @@ You may have to modify these files to fit your application.
   	- Click the link _create a new one in AWS CodeDeploy_
   	- Application name: `<application-name>-Application`
   	- Deployment group: `<application-name>-DeploymentGroup`
-  	- Deployment type: In-place deployment
+  * **Service role**
+    	  - Service role ARN: Select the role named `<your-application-name>-CodeDeployTrustRole-<hash>`
+    	  - Click create application
+  * **Deployment type**
+    - In-place deployment  	  
   * **Environment configuration**
-	  - Choose Amazon EC2 instances
-	  - Key: `Name`
-	  - Value: `<application-name>` make sure you see the EC2 instance created by the CloudFormation template in the _Matching instances_ section
-	  - Do not tick the box _Enable load balancing_
- * **Deployment configuration**
-	  - Leave as default
- * **Service role**
-	  - Service role ARN: Select the role named `<your-application-name>-CodeDeployTrustRole-<hash>`
-	  - Click create application
+    - Choose Amazon EC2 instances
+	- Key: `Name`
+	- Value: `<application-name>` make sure you see the EC2 instance created by the CloudFormation template in the _Matching instances_ section
+ * **Deployment settings**
+	- Deployment configuration: Leave as default
+  * **Load balancer**	  
+	- Do not tick the box _Enable load balancing_
+	
+ Click "create deployment group"	
 
 #### CodePipeline
  
@@ -361,7 +365,7 @@ You may have to modify these files to fit your application.
 	  - Application name: `<application-name>-Application`
 	  - Deployment group: `<application-name>-DeploymentGroup`
 	  - Click _Next step_
-	  - Role name: `AWS-CodePipeline-Service`
+	  - Role name: `AWS-CodePipeline-Service` (leave blank and click create if it does not show)
 	  - Click _Next step_
 	  - Review your pipeline, then click _Create pipeline_
 
