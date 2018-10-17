@@ -24,7 +24,13 @@ The goal of this course is to introduce some of the most common services found i
  1. Install [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
  2. Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
  3. Install the latest [PgAdmin](https://www.postgresql.org/ftp/pgadmin/pgadmin4)  
-
+ 4. Make sure you can ssh to the server to x14983pzz. Use appadm as user. I will mail you the password.
+ 
+### Git
+Since the tre-stash could not be used for the pipelines we are building I have set up a new organization in git for this lab: fredrik-aws-lab-organization. 
+I have to invite you to this organization in order for the lab to work.
+ 
+ 1. I have set up 
  
 ### Verify local environment
 
