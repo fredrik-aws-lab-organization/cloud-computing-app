@@ -129,7 +129,7 @@ Note: Don't forget to always use Ireland as the region in AWS.
 ### Manual deploy
 
  1. Upload your jar to to the instance with scp.
- - scp -i <application-name>-key.pem <application name>-1.0-SNAPSHOT.jar ec2-user@ec2-34-240-175-17.eu-west-1.compute.amazonaws.com:
+ - scp -i <application-name>-key.pem <application name>-1.0-SNAPSHOT.jar ec2-user@<ec2 instance ip>:
    <application name>-1.0-SNAPSHOT.jar      
  2. Install java with `yes | sudo yum install java-1.8.0`
  3. Start the application by using the command `java -jar -Dspring.profiles.active=production <application-name>.jar`.
