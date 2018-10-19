@@ -129,8 +129,7 @@ Note: Don't forget to always use Ireland as the region in AWS.
 ### Manual deploy
 
  1. Upload your jar to to the instance with scp.
-  `scp -i <application-name>-key.pem <application name>-1.0-SNAPSHOT.jar ec2-user@<ec2 instance ip>:
-   <application name>-1.0-SNAPSHOT.jar`      
+  `scp -i <application-name>-key.pem <application name>-1.0-SNAPSHOT.jar ec2-user@<ec2 instance ip>:`      
  2. Install java with `yes | sudo yum install java-1.8.0`
  3. Start the application by using the command `java -jar -Dspring.profiles.active=production <application-name>.jar`.
 
@@ -169,7 +168,7 @@ _Note: This section ("Local DB") is not mandatory and you could jump directly to
 
 ### Cloud DB
 
-[Login to AWS](https://sts.omegapoint.se/adfs/ls/IdpInitiatedSignOn.aspx). Go to **RDS** under _"Database"_. Click on the orange button _"Create database"_ and choose _PostgreSQL_. 
+[Login to AWS](https://tre-poc.signin.aws.amazon.com/console). Go to **RDS** under _"Database"_. Click on the orange button _"Create database"_ and choose _PostgreSQL_. 
 
 
 Make the following choices:
