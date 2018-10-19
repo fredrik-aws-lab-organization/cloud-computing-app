@@ -60,7 +60,7 @@ Change the name of the application in `application.properties`:
 <span style="color:orange">**Checkpoint 2**</span> Gradle should now have built the jar `build/libs/<application-name>-1.0-SNAPSHOT.jar`. If you once again run the application as above in step 10, you should be able to go to `http://localhost:8080/<application-name>/ping` in your browser att receive a _"pong"_.
 
 
-Create a new property file in `src/resources/` for production environment: `application-production.properties` with the following content:
+Create a new property file in `src/main/resources/` for production environment: `application-production.properties` with the following content:
 
 ```properties
 spring.profiles.active=production
@@ -89,7 +89,7 @@ on your local machine.
 ## Deploy on EC2
 
 ### Setup instance
-[Login to AWS](https://sts.omegapoint.se/adfs/ls/IdpInitiatedSignOn.aspx).
+[Login to AWS](https://tre-poc.signin.aws.amazon.com/console).
 
 Note: Don't forget to always use Ireland as the region in AWS.
 
