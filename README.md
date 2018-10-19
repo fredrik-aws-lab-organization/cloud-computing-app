@@ -33,7 +33,7 @@ I have to invite you to this organization in order for the lab to work.
 ### Verify local environment
 
  1. Create a new [Git repository](https://github.com/fredrik-aws-lab-organization/) called `aws-<your-name>` Don't forget to delete the repository when your done with the course.
- 2. Clone the template repository `$ git --bare clone http://stash.tre.se/scm/labs/cloud-computing-app.git`
+ 2. Clone the template repository `$ git --bare https://github.com/fredrik-aws-lab-organization/cloud-computing-app.git`
  3. `$ cd cloud-computing-app`
  4. `$ git remote set-url origin https://github.com/fredrik-aws-lab-organization/aws-<your-name>.git`
  5. `$ git push -u origin --all`
